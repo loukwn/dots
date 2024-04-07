@@ -21,7 +21,7 @@ GO_PATH=":/usr/local/go/bin"
 export PATH="$PATH$LOCAL_SCRIPTS_PATH$FLUTTER_PATH$ANDROID_PLATFORM_TOOLS_PATH$ANDROID_EMULATOR_PATH$ANDROID_TOOLS_PATH$ANDROID_TOOLS_BIN_PATH$GO_PATH$KOTLINC_PATH"
 
 # export GTK_THEME=Orchis-Dark
-export GTK_THEME=Catppuccin-Mocha-Standard-Green-Dark
+export GTK_THEME=Catppuccin-Mocha-Standard-Mauve-Dark
 
 # Flutter wants to know about Chrome
 export CHROME_EXECUTABLE=/usr/bin/chromium
