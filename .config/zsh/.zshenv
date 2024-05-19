@@ -24,7 +24,7 @@ export PATH="$PATH$LOCAL_SCRIPTS_PATH$FLUTTER_PATH$ANDROID_PLATFORM_TOOLS_PATH$A
 export GTK_THEME=Catppuccin-Mocha-Standard-Mauve-Dark
 
 # Flutter wants to know about Chrome
-export CHROME_EXECUTABLE=/usr/bin/chromium
+export CHROME_EXECUTABLE=/usr/bin/chromium-browser
 
 # ANDROID SHIII
 export ANDROID_HOME="$DEV_FOLDER/Libraries/AndroidSdk"
