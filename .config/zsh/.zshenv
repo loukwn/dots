@@ -5,8 +5,8 @@ export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME="$HOME"/.cache
 
 export ZSH_HOME="$XDG_CONFIG_HOME"/zsh
-export DEV_FOLDER="$HOME"/Dev
-export PROGRAMS_FOLDER="$HOME"/Programs
+DEV_FOLDER="$HOME"/Dev
+PROGRAMS_FOLDER="$HOME"/Programs
 
 # Setup PATH
 LOCAL_SCRIPTS_PATH=":$HOME/.local/bin"
