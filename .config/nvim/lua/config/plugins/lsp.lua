@@ -131,6 +131,8 @@ return {
         stylua = {},
         zls = {},
         prettier = {},
+        latexindent = {},
+        texlab = {},
       }
 
       require('mason').setup()

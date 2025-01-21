@@ -19,6 +19,7 @@ return {
         'zig',
         'gdscript',
         'gdshader',
+        'latex',
       },
       auto_install = true,
       highlight = { enable = true },
