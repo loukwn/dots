@@ -55,8 +55,8 @@ Plug 'tpope/vim-commentary'
 
 " f or F + <some chars>. ';' goes forwards. ',' goes backwards
 Plug 'justinmk/vim-sneak'
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
+" map f <Plug>Sneak_s
+" map F <Plug>Sneak_S
 
 "  Old text                  Command     New text ~
 "  "Hello *world!"           ds"         Hello world!
@@ -72,5 +72,7 @@ Plug 'tpope/vim-surround'
 map <leader>r <Action>(RenameElement)
 map <leader>f <Action>(ReformatCode)
 map <leader>p <Action>(Run)
+map <leader>s <Action>(Stop)
 map <leader>d <Action>(Debug)
 map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>y <Action>(Android.SyncProject)
