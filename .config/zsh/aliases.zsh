@@ -7,3 +7,6 @@ alias ls='ls --color=auto'
 alias wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
 
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+
+# kitty ssh fix
+[[ "$TERM" == "xterm-kitty" ]] && alias ssh="TERM=xterm-256color ssh" 
