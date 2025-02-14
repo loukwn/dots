@@ -1,5 +1,5 @@
 alias sourcerc='source $ZSH_HOME/.zshrc'
-alias editzshconfig='subl $XDG_CONFIG_HOME/zsh/'
+alias editzshconfig='nvim $XDG_CONFIG_HOME/zsh/'
 alias updatep10k='git -C $ZSH_HOME/powerlevel10k pull'
 
 alias ls='ls --color=auto'
