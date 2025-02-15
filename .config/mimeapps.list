@@ -45,6 +45,7 @@ video/x-fli=vlc.desktop
 video/x-flv=vlc.desktop
 font/ttf=org.gnome.font-viewer.desktop
 text/css=nvim.desktop
+application/xml=nvim.desktop
 
 [Added Associations]
 video/ogg=vlc.desktop;
@@ -94,3 +95,4 @@ x-scheme-handler/tel=org.gnome.Shell.Extensions.GSConnect.desktop;
 font/ttf=org.gnome.font-viewer.desktop;
 text/css=nvim.desktop;
 text/plain=nvim.desktop;
+application/xml=nvim.desktop;
