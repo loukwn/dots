@@ -46,6 +46,11 @@ video/x-flv=vlc.desktop
 font/ttf=org.gnome.font-viewer.desktop
 text/css=nvim.desktop
 application/xml=nvim.desktop
+application/pdf=app.zen_browser.zen.desktop
+x-scheme-handler/http=app.zen_browser.zen.desktop
+text/html=app.zen_browser.zen.desktop
+application/xhtml+xml=app.zen_browser.zen.desktop
+x-scheme-handler/https=app.zen_browser.zen.desktop
 
 [Added Associations]
 video/ogg=vlc.desktop;
@@ -96,3 +101,8 @@ font/ttf=org.gnome.font-viewer.desktop;
 text/css=nvim.desktop;
 text/plain=nvim.desktop;
 application/xml=nvim.desktop;
+application/pdf=org.mozilla.firefox.desktop;app.zen_browser.zen.desktop;
+x-scheme-handler/http=app.zen_browser.zen.desktop;
+text/html=app.zen_browser.zen.desktop;
+application/xhtml+xml=app.zen_browser.zen.desktop;
+x-scheme-handler/https=app.zen_browser.zen.desktop;
