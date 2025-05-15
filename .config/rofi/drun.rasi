@@ -1,0 +1,86 @@
+@import "colors/current.rasi"
+
+configuration {
+	  modi:                        "drun";
+    icon-theme:                  "Papirus";
+    show-icons:                  true;
+    drun-display-format:         "{name}";
+}
+
+window {
+    enabled:                     true;
+    width:                       30%;
+    height:                      50%;
+    border:                      1px solid;
+    border-radius:               20px;
+    border-color:                @foreground;
+    background-color:            @background;
+}
+
+mainbox {
+    spacing:                     24px;
+    padding:                     48px 48px 12px 48px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+inputbar {
+    padding:                     8px;
+    border:                      1px;
+    border-radius:               100%;
+    border-color:                gray/30%;
+    background-color:            transparent;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    padding:                     9px 12px;
+    vertical-align:              0.5;
+    border-radius:               100%;
+    background-color:            white;
+    text-color:                  black;
+    str:                         "";
+}
+
+entry {
+    padding:                     8px 12px;
+    background-color:            transparent;
+    text-color:                  white;
+    cursor:                      text;
+    placeholder:                 "Search...";
+    placeholder-color:           gray;
+    font:                        "Iosevka Medium 12";
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+listview {
+    border-radius:               20px;
+    background-color:            @background;
+}
+
+element {
+    orientation:                 horizontal;
+    spacing:                     24px;
+    border-radius:               20px;
+    background-color:            transparent;
+}
+
+element selected.normal {
+    background-color:            @background-alt;
+}
+
+element-icon {
+    background-color:            transparent;
+    padding:                     8px;
+    size:                        52px;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  @foreground;
+    vertical-align:              0.5;
+    font:                        "Fira Code 12";
+}

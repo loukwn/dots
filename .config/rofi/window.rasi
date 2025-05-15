@@ -41,6 +41,7 @@ element-icon {
 element-text {
     background-color:            transparent;
     text-color:                  @foreground;
+    font:                        "Fira Code 12";
     vertical-align:              0.5;
 }
 
