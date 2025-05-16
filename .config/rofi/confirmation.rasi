@@ -1,0 +1,54 @@
+@import "colors/current.rasi"
+
+window {
+  transparency: "real";
+  fullscreen: true;
+  padding: calc( 50% - 88px ) calc( 50% - 100px );
+  background-color: transparent;
+}
+
+mainbox {
+  border: 1px solid;
+  border-radius: 20px;
+  border-color: @foreground;
+  background-color: @background;
+  orientation: vertical;
+  children: [ "message", "listview" ];
+}
+
+listview {
+  flow: horizontal;
+  columns: 2;
+  padding: 16px;
+  spacing: 16px;
+  background-color: @background;
+}
+
+element {
+  padding: 20px;
+  border-radius: 100%;
+  background-color: @background-alt;
+  text-color: @foreground;
+  cursor: pointer;
+}
+
+element-text {
+  font: "FiraCode Nerd Font 20";
+  background-color: transparent;
+  text-color: inherit;
+  cursor: inherit;
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+}
+
+element selected.normal {
+  background-color: @foreground;
+  text-color: @background;
+}
+
+textbox {
+  padding: 16px;
+  horizontal-align: 0.5;
+  background-color: @background;
+  text-color: @foreground;
+}

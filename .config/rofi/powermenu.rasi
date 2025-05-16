@@ -1,0 +1,93 @@
+@import "colors/current.rasi"
+
+window {
+  transparency: "real";
+  fullscreen: true;
+  padding: calc( 50% - 200px ) calc( 50% - 300px );
+  background-color: transparent;
+}
+
+mainbox {
+  border: 1px solid;
+  border-radius: 20px;
+  border-color: @foreground;
+  background-color: @background;
+  orientation: horizontal;
+  children: [ "imagebox", "listview" ];
+}
+
+imagebox {
+  spacing: 20px;
+  padding: 20px;
+  background-color: transparent;
+  background-image: url("~/Pictures/Wallpapers/gruv_pixel_grass.png", height);
+  children: [ "inputbar", "dummy", "message" ];
+}
+
+inputbar {
+  padding: 12px;
+  border-radius: 100%;
+  background-color: @background-alt;
+  text-color: @foreground;
+  children: [ "dummy", "prompt", "dummy"];
+}
+
+// Just a spacer
+dummy {
+  background-color: transparent;
+}
+
+prompt {
+  background-color: @background-alt;
+  text-color: inherit;
+  font: "FiraCode Nerd Font 12";
+}
+
+message {
+  padding: 12px;
+  border-radius: 100%;
+  background-color: @background-alt;
+}
+
+textbox {
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+  font: "FiraCode Nerd Font 10";
+  background-color: @background-alt;
+  text-color: @foreground;
+}
+
+listview {
+  flow: horizontal;
+  columns: 2;
+  cycle: true;
+  scrollbar: false;
+  reverse: false;
+  vertical-align: true;
+  horizontal-align: true;
+  spacing: 16px;
+  margin: 95px 16px;
+  background-color: @background;
+}
+
+element {
+  padding: 20px;
+  border-radius: 100%;
+  background-color: @background-alt;
+  text-color: @foreground;
+  cursor: pointer;
+}
+
+element-text {
+  font: "FiraCode Nerd Font 32";
+  background-color: transparent;
+  text-color: inherit;
+  cursor: inherit;
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+}
+
+element selected.normal {
+  background-color: @foreground;
+  text-color: @background;
+}

@@ -9,8 +9,8 @@ configuration {
 
 window {
     enabled:                     true;
-    width:                       30%;
-    height:                      50%;
+    width:                       500px;
+    height:                      500px;
     border:                      1px solid;
     border-radius:               20px;
     border-color:                @foreground;
