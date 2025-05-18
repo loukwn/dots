@@ -56,7 +56,7 @@ markup = full
 #   %n  progress value if set without any extra characters
 #   %%  Literal %
 # Markup is allowed https://docs.gtk.org/Pango/pango_markup.html
-format = "<b>(%a)</b> <i>%s</i>\n%b"
+format = "<b>%s</b>\n%b"
 alignment = left
 vertical_alignment = center
 ignore_newline = no
@@ -116,7 +116,7 @@ timeout = 5
 [urgency_normal]
 background = "#1d2021"
 foreground = "#fbf1c7"
-timeout = 0
+timeout = 90
 
 [urgency_critical]
 background = "#cc241d"
