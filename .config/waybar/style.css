@@ -1,0 +1,158 @@
+@define-color dark_fg0 #fbf1c7;
+@define-color dark_bg0 #282828;
+@define-color dark_bg2 #504945;
+@define-color dark_bg0h #1d2021;
+@define-color dark_red #fb4934;
+@define-color dark_green #b8bb26;
+@define-color dark_yellow #fabd2f;
+@define-color dark_blue #83a598;
+@define-color dark_purple #d3869b;
+@define-color dark_aqua #8ec07c;
+@define-color dark_orange #fe8019;
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: Open Sans;
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: @dark_bg0;
+}
+
+tooltip {
+  background: @dark_bg0;
+  border: 1px solid @dark_fg0;
+  border-radius: 20px;
+}
+
+tooltip label {
+  color: @dark_fg0;
+}
+
+#workspaces {
+  margin: 8px 0px 8px 0px;
+  color: @dark_bg0;
+  border: 1px solid @dark_bg2;
+  border-radius: 20px;
+}
+
+#workspaces button:last-child {
+  border-radius: 0px 20px 20px 0px;
+}
+
+#workspaces button:first-child {
+  border-radius: 20px 0px 0px 20px;
+}
+
+#workspaces button:only-child {
+  border-radius: 20px;
+}
+
+#workspaces .hosting-monitor {
+  background: @dark_bg2;
+}
+
+#workspaces .active.hosting-monitor {
+  background: @dark_fg0;
+  color: @dark_bg0;
+}
+
+#workspaces button {
+  background: transparent;
+  color: @dark_fg0;
+}
+
+#workspaces button:hover {
+  background: none;
+  border: none;
+}
+
+#window label {
+  font-weight: bold;
+  color: @dark_fg0;
+}
+
+#mpris {
+  font-weight: bold;
+  color: @dark_purple;
+}
+
+#clock {
+  margin: 8px 0px;
+  font-weight: bold;
+  color: @dark_fg0;
+  padding: 0px 8px;
+  border-radius: 20px;
+}
+
+#idle_inhibitor {
+  color: @dark_fg0;
+  font-weight: bold;
+}
+
+#pulseaudio {
+  color: @dark_yellow;
+  font-weight: bold;
+}
+
+#cpu,
+#memory,
+#temperature {
+  color: @dark_blue;
+  font-weight: bold;
+}
+
+#battery {
+  color: @dark_fg0;
+  font-weight: bold;
+}
+
+#battery.charging {
+  color: @dark_green;
+}
+
+#battery.warning:not(.charging) {
+  color: @dark_yellow;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#battery.critical:not(.charging) {
+  color: @dark_red;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#language {
+  color: @dark_orange;
+  font-weight: bold;
+}
+
+#network {
+  font-weight: bold;
+  color: @dark_aqua;
+}
+
+#privacy-item {
+  color: @dark_red;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    color: @dark_bg0;
+  }
+}

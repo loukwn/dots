@@ -1,0 +1,144 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 46,
+  "margin-left": 16,
+  "margin-right": 16,
+  "spacing": 16,
+  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-center": ["mpris", "clock"],
+  "modules-right": [
+    "idle_inhibitor",
+    "pulseaudio",
+    "cpu",
+    "memory",
+    "temperature",
+    "battery",
+    "hyprland/language",
+    "network",
+    "privacy",
+    "tray",
+  ],
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "warp-on-scroll": false,
+    "sort-by-name": true,
+    "all-outputs": true,
+    "format": "{name}",
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "rewrite": {
+      "(.*) — Zen Browser": "$1",
+      "(.*) - Kitty": "💻  $1",
+    },
+    "max-length": 70,
+    "separate-outputs": true,
+  },
+
+  "mpris": {
+    "format": "{player}",
+    "format-paused": " ",
+    "tooltip-format": "{title}\n{artist}\n{album}",
+  },
+
+  "clock": {
+    "timezone": "Europe/London",
+    "tooltip": false,
+    "format": "<big>󰃭 </big>{:%a, %d %b   <big> </big> %H:%M}",
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "<big> </big>",
+      "deactivated": "<big>󰒲 </big>",
+    },
+  },
+
+  "pulseaudio": {
+    "format": "<big>{icon}</big>{volume}%   {format_source}",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": "<big> </big> {format_source}",
+    "format-source": "<big> </big>{volume}%",
+    "format-source-muted": "<big> </big>",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [" ", " ", " "],
+    },
+    "on-click": "pavucontrol",
+  },
+
+  "cpu": {
+    "format": "<big> </big> {usage}%",
+    "on-click": "kitty -o confirm_os_window_close=0 -e btop",
+  },
+
+  "memory": {
+    "format": "<big> </big>{}%",
+    "on-click": "kitty -o confirm_os_window_close=0 -e btop",
+  },
+
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "<big>{icon} </big>{temperatureC}°C",
+    "format-icons": ["", "", ""],
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "interval": 10,
+    "format": "<big>{icon}</big>    {capacity}%",
+    "format-full": "<big>{icon}</big> {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+  },
+
+  "hyprland/language": {
+    "format": "<big> </big>  {long}",
+  },
+
+  "network": {
+    "format-wifi": "    {essid}",
+    "tooltip-format-wifi": "Signal strength: {signalStrength}%",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+  },
+
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24,
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24,
+      },
+    ],
+  },
+
+  "tray": {
+    "spacing": 8,
+  },
+}
