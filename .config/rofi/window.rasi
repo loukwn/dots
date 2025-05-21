@@ -1,47 +1,47 @@
 @import "colors/current.rasi"
 
 configuration {
-	  modi:                        "window";
-    icon-theme:                  "Papirus";
-    show-icons:                  true;
+  modi: "window";
+  icon-theme: "Papirus";
+  show-icons: true;
 }
 
 window {
-    enabled:                     true;
-    width:                       30%;
-    border:                      1px solid;
-    border-radius:               20px;
-    border-color:                @foreground;
-    background-color:            @background;
-    children:                    [ "listview" ];
+  enabled: true;
+  width: 30%;
+  border: 1px solid;
+  border-radius: 20px;
+  border-color: @foreground;
+  background-color: @background;
+  children: [ "listview" ];
 }
 
 listview {
-    padding:                     16px;
-    border-radius:               20px;
-    background-color:            @background;
+  padding: 16px;
+  border-radius: 20px;
+  background-color: @background;
 }
 
 element {
-    orientation:                 horizontal;
-    border-radius:               15px;
-    background-color:            transparent;
+  orientation: horizontal;
+  border-radius: 15px;
+  background-color: transparent;
 }
 
 element selected.normal {
-    background-color:            @background-alt;
+  background-color: @background-alt;
 }
 
 element-icon {
-    background-color:            transparent;
-    padding:                     4px;
-    size:                        64px;
+  background-color: transparent;
+  padding: 4px;
+  size: 64px;
 }
 
 element-text {
-    background-color:            transparent;
-    text-color:                  @foreground;
-    font:                        "Fira Code 12";
-    vertical-align:              0.5;
+  background-color: transparent;
+  text-color: @foreground;
+  font: "Open Sans 12";
+  vertical-align: 0.5;
 }
 
