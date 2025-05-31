@@ -31,17 +31,22 @@
   "hyprland/window": {
     "format": "{}",
     "rewrite": {
-      "(.*) — Zen Browser": "$1",
-      "(.*) - Kitty": "💻  $1",
+      "(.*) — Zen Browser": "<big> </big>  $1",
+      "(.*) - Kitty": "<big>  </big>$1",
+      "zsh": "<big>  </big>$1",
+      "(.*) - Obsidian - (.*)": "<big>󰠮 </big> $1",
+      "(.*) — 1Password": "<big>󰌾 </big> $1",
+      "Tresorit": "<big>󱋖 </big> Tresorit",
+      "(.*) - Godot Engine": "<big> </big> $1",
     },
     "max-length": 70,
     "separate-outputs": true,
   },
 
   "mpris": {
-    "format": "{player}",
+    "format": "<big></big>   {player}",
     "format-paused": " ",
-    "tooltip-format": "{title}\n{artist}\n{album}",
+    "tooltip-format": "{title}\n{artist}",
   },
 
   "clock": {
@@ -72,7 +77,7 @@
       "phone": " ",
       "portable": " ",
       "car": " ",
-      "default": [" ", " ", " "],
+      "default": [" ", " ", "  "],
     },
     "on-click": "pavucontrol",
   },
@@ -100,7 +105,7 @@
     },
     "interval": 10,
     "format": "<big>{icon}</big>    {capacity}%",
-    "format-full": "<big>{icon}</big> {capacity}%",
+    "format-full": "<big>{icon}</big>  {capacity}%",
     "format-charging": "  {capacity}%",
     "format-plugged": "  {capacity}%",
     "format-icons": ["", "", "", "", ""],
