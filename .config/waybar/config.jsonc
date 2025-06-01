@@ -6,7 +6,7 @@
   "margin-right": 16,
   "spacing": 16,
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
-  "modules-center": ["mpris", "clock"],
+  "modules-center": ["mpris", "privacy", "custom/wf-recorder", "clock"],
   "modules-right": [
     "idle_inhibitor",
     "pulseaudio",
@@ -16,7 +16,6 @@
     "battery",
     "hyprland/language",
     "network",
-    "privacy",
     "tray",
   ],
 
@@ -47,6 +46,34 @@
     "format": "<big></big>   {player}",
     "format-paused": " ",
     "tooltip-format": "{title}\n{artist}",
+  },
+
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24,
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 24,
+      },
+    ],
+  },
+
+  "custom/wf-recorder": {
+    "format": "{}",
+    "interval": "once",
+    "exec": "echo ''",
+    "tooltip-format": "Recording with wf-recorder",
+    "exec-if": "pgrep 'wf-recorder'",
+    "on-click": "exec stop_wf_recorder",
+    "signal": 8,
   },
 
   "clock": {
@@ -105,7 +132,7 @@
     },
     "interval": 10,
     "format": "<big>{icon}</big>    {capacity}%",
-    "format-full": "<big>{icon}</big>  {capacity}%",
+    "format-full": "<big>{icon}</big>   {capacity}%",
     "format-charging": "  {capacity}%",
     "format-plugged": "  {capacity}%",
     "format-icons": ["", "", "", "", ""],
@@ -123,24 +150,6 @@
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
-  },
-
-  "privacy": {
-    "icon-spacing": 4,
-    "icon-size": 18,
-    "transition-duration": 250,
-    "modules": [
-      {
-        "type": "screenshare",
-        "tooltip": true,
-        "tooltip-icon-size": 24,
-      },
-      {
-        "type": "audio-in",
-        "tooltip": true,
-        "tooltip-icon-size": 24,
-      },
-    ],
   },
 
   "tray": {

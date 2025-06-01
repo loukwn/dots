@@ -19,5 +19,5 @@ openall() {
 
 # This should update the title on Kitty and similar terminals (e.g Foot)
 function preexec {
-    print -Pn "\e]0;${(q)1}\e\\"
+    print -Pn "\e]0;${(q)1} - Kitty\e\\"
 }

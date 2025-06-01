@@ -30,6 +30,7 @@ tooltip {
 
 tooltip label {
   color: @dark_fg0;
+  padding: 8px;
 }
 
 #workspaces {
@@ -78,6 +79,24 @@ tooltip label {
 #mpris {
   font-weight: bold;
   color: @dark_purple;
+}
+
+#privacy-item {
+  color: @dark_red;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#custom-wf-recorder {
+  color: @dark_red;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 #clock {
@@ -140,15 +159,6 @@ tooltip label {
 #network {
   font-weight: bold;
   color: @dark_aqua;
-}
-
-#privacy-item {
-  color: @dark_red;
-  animation-name: blink;
-  animation-duration: 1s;
-  animation-timing-function: steps(12);
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 }
 
 @keyframes blink {

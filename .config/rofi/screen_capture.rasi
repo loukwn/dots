@@ -1,0 +1,71 @@
+@import "colors/current.rasi"
+
+window {
+ enabled: true;
+ width: 500px;
+ height: 500px;
+ border: 1px solid;
+ border-radius: 20px;
+ border-color: @foreground;
+ background-color: @background;
+}
+
+mainbox {
+ spacing: 24px;
+ padding: 48px 48px 12px 48px;
+ background-color: transparent;
+ children: [ "inputbar", "listview" ];
+}
+
+listview {
+  flow: horizontal;
+  columns: 2;
+  padding: 16px;
+  spacing: 16px;
+  background-color: @background;
+}
+
+inputbar {
+  background-color: @background;
+  children: [ "dummy", "prompt", "dummy"];
+}
+
+// Just a spacer
+dummy {
+  background-color: transparent;
+}
+
+prompt {
+  font: "Open Sans 18";
+  background-color: @background;
+  text-color: @foreground;
+}
+
+element {
+  padding: 20px;
+  border-radius: 100%;
+  background-color: @background-alt;
+  text-color: @foreground;
+  cursor: pointer;
+}
+
+element-text {
+  font: "FiraCode Nerd Font 20";
+  background-color: transparent;
+  text-color: inherit;
+  cursor: inherit;
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+}
+
+element selected.normal {
+  background-color: @foreground;
+  text-color: @background;
+}
+
+textbox {
+  padding: 16px;
+  horizontal-align: 0.5;
+  background-color: @background;
+  text-color: @foreground;
+}
