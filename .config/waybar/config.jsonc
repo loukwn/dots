@@ -80,6 +80,7 @@
     "timezone": "Europe/London",
     "tooltip": false,
     "format": "<big>󰃭 </big>{:%a, %d %b   <big> </big> %H:%M}",
+    "on-click": "/usr/bin/flatpak run --branch=stable --arch=x86_64 app.zen_browser.zen --new-window https://calendar.proton.me/u/0/",
   },
 
   "idle_inhibitor": {
@@ -123,6 +124,7 @@
     "critical-threshold": 80,
     "format": "<big>{icon} </big>{temperatureC}°C",
     "format-icons": ["", "", ""],
+    "on-click": "tuxedo-control-center",
   },
 
   "battery": {
@@ -136,6 +138,7 @@
     "format-charging": "  {capacity}%",
     "format-plugged": "  {capacity}%",
     "format-icons": ["", "", "", "", ""],
+    "on-click": "tuxedo-control-center",
   },
 
   "hyprland/language": {
