@@ -12,7 +12,6 @@ export VISUAL=nvim
 export EDITOR=$VISUAL
 
 # Setup PATH
-LOCAL_SCRIPTS_PATH="$HOME/.local/bin"
 FLUTTER_PATH="$DEV_FOLDER/Libraries/flutter/bin"
 ANDROID_PLATFORM_TOOLS_PATH="$DEV_FOLDER/Libraries/AndroidSdk/platform-tools"
 ANDROID_EMULATOR_PATH="$DEV_FOLDER/Libraries/AndroidSdk/emulator"
@@ -20,10 +19,26 @@ ANDROID_TOOLS_PATH="$DEV_FOLDER/Libraries/AndroidSdk/tools"
 ANDROID_TOOLS_BIN_PATH="$DEV_FOLDER/Libraries/AndroidSdk/tools/bin"
 KOTLINC_PATH="$PROGRAMS_FOLDER/kotlinc/bin"
 
-export PATH="$PATH:$LOCAL_SCRIPTS_PATH:$FLUTTER_PATH:$ANDROID_PLATFORM_TOOLS_PATH:$ANDROID_EMULATOR_PATH:$ANDROID_TOOLS_PATH:$ANDROID_TOOLS_BIN_PATH:$KOTLINC_PATH"
+# ZSH ties PATH to an array called 'path'
+# See https://zsh.sourceforge.io/Guide/zshguide02.html#l24
+# and https://wiki.archlinux.org/title/Zsh#Configuring_$PATH
+
+# This is to guarantee unique entries (no duplicates)
+typeset -U path PATH
+
+path=(
+  $FLUTTER_PATH
+  $ANDROID_PLATFORM_TOOLS_PATH
+  $ANDROID_EMULATOR_PATH
+  $ANDROID_TOOLS_PATH
+  $ANDROID_TOOLS_BIN_PATH
+  $KOTLINC_PATH
+  $path
+)
 
 # export GTK_THEME=Orchis-Dark
 # export GTK_THEME=Catppuccin-mocha-lavender
+export GTK_THEME=Gruvbox-Dark
 
 # Flutter wants to know about Chrome
 export CHROME_EXECUTABLE=/usr/bin/chromium-browser
