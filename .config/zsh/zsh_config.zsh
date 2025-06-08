@@ -1,11 +1,30 @@
 # ---
 # HISTORY
+#
+# https://zsh.sourceforge.io/Guide/zshguide02.html#l17
 # ---
 
+# Share history between open terminal windows
 setopt share_history
+
+# Do not save a command if same as its previous
+setopt hist_ignore_dups
+
+# Should not get duplicates when searhing through history
+setopt hist_find_no_dups
+
+# Remove needless blanks from history entries so that things are cleaner
+setopt hist_reduce_blanks
+
+
 HISTFILE="$ZSH_HOME"/.zsh_history
-SAVEHIST=1000  # Save most-recent 1000 lines
-HISTSIZE=1000
+# History lines saved in HISTFILE (at most)
+SAVEHIST=10000
+# History lines that are in memory in current session
+HISTSIZE=50000
+
+
+
 
 # ---
 # KEY BINDINGS

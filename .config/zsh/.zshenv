@@ -12,6 +12,7 @@ export VISUAL=nvim
 export EDITOR=$VISUAL
 
 # Setup PATH
+LOCAL_BIN="$HOME/.local/bin"
 FLUTTER_PATH="$DEV_FOLDER/Libraries/flutter/bin"
 ANDROID_PLATFORM_TOOLS_PATH="$DEV_FOLDER/Libraries/AndroidSdk/platform-tools"
 ANDROID_EMULATOR_PATH="$DEV_FOLDER/Libraries/AndroidSdk/emulator"
@@ -27,6 +28,7 @@ KOTLINC_PATH="$PROGRAMS_FOLDER/kotlinc/bin"
 typeset -U path PATH
 
 path=(
+  $LOCAL_BIN
   $FLUTTER_PATH
   $ANDROID_PLATFORM_TOOLS_PATH
   $ANDROID_EMULATOR_PATH
