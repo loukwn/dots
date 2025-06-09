@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>kitty</icon>
+	<name>Open Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1747085253115731-1</unique-id>
+	<command>kitty %f</command>
+	<description>Open Terminal Here</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+<action>
+	<icon>kitty</icon>
+	<name>Open Root Terminal Here</name>
+	<submenu></submenu>
+	<unique-id>1749499761399767-1</unique-id>
+	<command>run_as_root kitty %f</command>
+	<description>Open Root Terminal Here</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>org.xfce.thunar</icon>
+	<name>Open Root Thunar Here</name>
+	<submenu></submenu>
+	<unique-id>1749500246918254-1</unique-id>
+	<command>run_as_root thunar %f</command>
+	<description>Open Root Thunar Here</description>
+	<range></range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+</actions>
