@@ -1,1 +1,1 @@
-# source "$ZSH_HOME"/program_inits/init_rbenv.zsh
+# source "$ZDOTDIR/program_inits/init_rbenv.zsh"

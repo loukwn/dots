@@ -17,7 +17,7 @@ setopt hist_find_no_dups
 setopt hist_reduce_blanks
 
 
-HISTFILE="$ZSH_HOME"/.zsh_history
+HISTFILE="$ZDOTDIR/.zsh_history"
 # History lines saved in HISTFILE (at most)
 SAVEHIST=10000
 # History lines that are in memory in current session

@@ -3,8 +3,8 @@ declare -A plugins
 plugins[zsh-syntax-highlighting]="https://github.com/zsh-users/zsh-syntax-highlighting.git"
 plugins[zsh-autosuggestions]="https://github.com/zsh-users/zsh-autosuggestions.git"
 
-mkdir -p "$ZSH_HOME/plugins"
-cd "$ZSH_HOME/plugins"
+mkdir -p "$ZDOTDIR/plugins"
+cd "$ZDOTDIR/plugins"
 
 for plugin in "${!plugins[@]}"
 do

@@ -4,7 +4,6 @@ export XDG_DATA_HOME=$HOME/.local/share
 export XDG_STATE_HOME=$HOME/.local/state
 export XDG_CACHE_HOME="$HOME"/.cache
 
-export ZSH_HOME="$XDG_CONFIG_HOME"/zsh
 DEV_FOLDER="$HOME"/Dev
 PROGRAMS_FOLDER="$HOME"/Programs
 

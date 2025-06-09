@@ -1,6 +1,6 @@
-alias sourcerc='source $ZSH_HOME/.zshrc'
+alias sourcerc='source $ZDOTDIR/.zshrc'
 alias editzshconfig='nvim $XDG_CONFIG_HOME/zsh/'
-alias updatep10k='git -C $ZSH_HOME/powerlevel10k pull'
+alias updatep10k='git -C $ZDOTDIR/powerlevel10k pull'
 
 alias ls='ls --color=auto'
 alias rm='rm -i'
