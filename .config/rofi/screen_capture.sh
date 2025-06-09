@@ -23,16 +23,16 @@ run_rofi() {
 
   case "$monitors_used_now" in
     $both_monitors)
-	    echo -e "$ss\n$s1\n$s2\n$sa\n$rs\n$r1\n$r2" | rofi_cmd
+      echo -e "$ss\n$s1\n$s2\n$sa\n$rs\n$r1\n$r2" | rofi_cmd
       ;;
     $just_laptop)
-	    echo -e "$ss\n$s1\n$rs\n$r1" | rofi_cmd
+      echo -e "$ss\n$s1\n$rs\n$r1" | rofi_cmd
       ;;
     $just_external)
-	    echo -e "$ss\n$s1\n$rs\n$r1" | rofi_cmd
+      echo -e "$ss\n$s2\n$rs\n$r2" | rofi_cmd
       ;;
     *)
-	    echo -e "$ss\n$s1\n$s2\n$sa\n$rs\n$r1\n$r2" | rofi_cmd
+      echo -e "$ss\n$s1\n$s2\n$sa\n$rs\n$r1\n$r2" | rofi_cmd
       ;;
     esac
 }
@@ -46,28 +46,28 @@ case "$chosen" in
   $ss)
     screenshot_area="$(slurp)" || exit 1
     grim -g "$screenshot_area" "$img_path"
-		wl-copy < "$img_path"
+    wl-copy < "$img_path"
     notify-send "Screenshot Taken (selection)" "${img_path}"
     ;;
   $s1)
     sleep .2
     grim -c -o eDP-1 "$img_path"
-		wl-copy < "$img_path"
+    wl-copy < "$img_path"
     notify-send "Screenshot Taken (laptop)" "${img_path}"
-		;;
+    ;;
   $s2)
     sleep .2
     grim -c -o HDMI-A-1 "$img_path"
-		wl-copy < "$img_path"
+    wl-copy < "$img_path"
     notify-send "Screenshot Taken (external)" "${img_path}"
-		;;
+    ;;
   $sa)
     sleep .2
     grim -c -o eDP-1 "${img_path//.png/-eDP-1.png}"
-		grim -c -o HDMI-A-1 "${img_path//.png/-HDMI-A-1.png}"
-		montage "${img_path//.png/-eDP-1.png}" "${img_path//.png/-HDMI-A-1.png}" -tile 2x1 -geometry +0+0 "$img_path" 
-		wl-copy < "$img_path"
-		rm "${img_path//.png/-eDP-1.png}" "${img_path/.png/-HDMI-A-1.png}"
+    grim -c -o HDMI-A-1 "${img_path//.png/-HDMI-A-1.png}"
+    montage "${img_path//.png/-eDP-1.png}" "${img_path//.png/-HDMI-A-1.png}" -tile 2x1 -geometry +0+0 "$img_path" 
+    wl-copy < "$img_path"
+    rm "${img_path//.png/-eDP-1.png}" "${img_path/.png/-HDMI-A-1.png}"
     notify-send "Screenshot Taken (all)" "${img_path}"
     ;;
   $rs)
