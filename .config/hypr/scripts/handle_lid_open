@@ -1,0 +1,4 @@
+#!/bin/sh
+
+laptop_monitor_name="eDP-1"
+hyprctl keyword monitor "$laptop_monitor_name, enable" && hyprctl reload

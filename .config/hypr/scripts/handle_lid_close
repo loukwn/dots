@@ -1,0 +1,16 @@
+#!/bin/sh
+
+laptop_monitor_name="eDP-1"
+monitors=$(hyprctl monitors | grep "Monitor" | awk -F ' ' '{print $2}')
+monitors_filter_by_laptop_monitor=$(echo "$monitors" | grep $laptop_monitor_name)
+number_of_monitors="$(echo "$monitors" | wc -l)"
+
+if [[ "$number_of_monitors" == 1 ]] && [[ ! -z "$monitors_filter_by_laptop_monitor" ]]; then
+  echo "Just laptop monitor. Will lock."
+  swaylock
+elif [[ ! -z "$monitors_filter_by_laptop_monitor" ]]; then
+  echo "More than one monitors and laptop monitor included. Will disable laptop monitor."
+  hyprctl keyword monitor "$laptop_monitor_name, disable"
+else
+  echo "One monitor but laptop monitor not included. Will do nothing."
+fi
