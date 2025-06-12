@@ -32,11 +32,12 @@
     "rewrite": {
       "(.*) — Zen Browser": "<big> </big>  $1",
       "(.*) - Kitty": "<big>  </big>$1",
-      "zsh": "<big>  </big>$1",
+      "zsh": "<big>  </big>$1",
       "(.*) - Obsidian - (.*)": "<big>󰠮 </big> $1",
       "(.*) — 1Password": "<big>󰌾 </big> $1",
       "Tresorit": "<big>󱋖 </big> Tresorit",
       "(.*) - Godot Engine": "<big> </big> $1",
+      "(.*) - Thunar": "<big> </big> $1",
     },
     "max-length": 70,
     "separate-outputs": true,

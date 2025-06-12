@@ -74,3 +74,9 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 
 # GnuPG (for XDG)
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+
+# Python
+export PYTHON_HISTORY="$XDG_DATA_HOME"/python/history
+
+# Node
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node/history

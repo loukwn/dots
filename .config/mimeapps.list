@@ -17,6 +17,7 @@ audio/aac=mpv.desktop
 audio/mpeg=mpv.desktop
 audio/wav=mpv.desktop
 audio/webm=mpv.desktop
+application/x-zerosize=nvim.desktop
 
 [Added Associations]
 text/plain=nvim.desktop;
@@ -37,3 +38,6 @@ audio/aac=mpv.desktop;vlc.desktop;
 audio/mpeg=mpv.desktop;vlc.desktop;
 audio/wav=mpv.desktop;vlc.desktop;
 audio/webm=mpv.desktop;vlc.desktop;
+image/svg+xml=app.zen_browser.zen.desktop;
+application/x-zerosize=nvim.desktop;
+application/x-desktop=nvim.desktop;
