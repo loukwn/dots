@@ -10,7 +10,7 @@ indicator-caps-lock
 indicator-idle-visible
 disable-caps-lock-text
 
-font=Iosevka
+font=Open Sans
 
 indicator-radius=100
 indicator-thickness=10
