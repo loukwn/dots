@@ -1,0 +1,12 @@
+[SddmGreeterTheme]
+Name=astrogruv
+Description=Custom gruvbox theme inspired by sddm-astronaut-theme
+Author=loukwn
+License=GPL-3.0-or-later
+Type=sddm-theme
+Version=1.0
+ConfigFile=configuration.conf
+MainScript=Main.qml
+Theme-Id=astrogruv-theme
+Theme-API=2.0
+QtVersion=6
