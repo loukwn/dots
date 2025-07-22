@@ -41,3 +41,4 @@ audio/webm=mpv.desktop;vlc.desktop;
 image/svg+xml=app.zen_browser.zen.desktop;
 application/x-zerosize=nvim.desktop;
 application/x-desktop=nvim.desktop;
+application/json=nvim.desktop;
