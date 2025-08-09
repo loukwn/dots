@@ -41,6 +41,10 @@ path=(
 # export GTK_THEME=Catppuccin-mocha-lavender
 export GTK_THEME=Gruvbox-Dark
 
+# Should enable wayland support for all Electron apps above v28
+# see: https://wiki.archlinux.org/title/Wayland#Electron
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+
 # Flutter wants to know about Chrome
 export CHROME_EXECUTABLE=/usr/bin/chromium-browser
 
@@ -50,11 +54,6 @@ export ANDROID_USER_HOME="$XDG_DATA_HOME"/android
 
 # JRE location (Android studio)
 export JAVA_HOME="$PROGRAMS_FOLDER/android-studio-canary/jbr"
-
-# Firefox on Wayland
-if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-    export MOZ_ENABLE_WAYLAND=1
-fi
 
 # Rust (for XDG)
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
