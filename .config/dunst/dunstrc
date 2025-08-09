@@ -124,3 +124,9 @@ foreground = "#fbf1c7"
 frame_color = "#fb4934"
 timeout = 0
 
+# Custom rule for screen timeout warning
+[rule]
+summary = "Screen timeout"
+background = "#cc241d"
+foreground = "#fbf1c7"
+frame_color = "#fb4934"
