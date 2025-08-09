@@ -124,7 +124,7 @@
   "temperature": {
     "critical-threshold": 80,
     "format": "<big>{icon} </big>{temperatureC}°C",
-    "format-icons": ["", "", ""],
+    "format-icons": ["", "", ""],
     "on-click": "tuxedo-control-center",
   },
 
