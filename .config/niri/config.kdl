@@ -1,0 +1,323 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+
+
+// #################
+// ### AUTOSTART ###
+// #################
+
+spawn-at-startup "/usr/libexec/polkit-mate-authentication-agent-1"
+// This handles turning off the screen after it has been locked
+spawn-sh-at-startup "swayidle -w timeout 5 'if pgrep -x swaylock; then niri msg action power-off-monitors; fi' resume 'niri msg action power-on-monitors'"
+// // This handles turning off the screen (and locking it) after x duration of inactivity
+spawn-sh-at-startup "swayidle -w timeout 570 'notify-send \"Screen timeout\" \"Screen will lock in 30sec\"' timeout 600 'swaylock' timeout 605 'niri msg action power-off-monitors' resume 'niri msg action power-on-monitors' before-sleep 'swaylock'"
+spawn-at-startup "1password" "--silent"
+
+
+// #############
+// ### INPUT ###
+// #############
+
+// https://yalter.github.io/niri/Configuration:-Input
+
+input {
+  focus-follows-mouse
+
+  keyboard {
+    xkb {
+      // For more information, see xkeyboard-config(7).
+
+      layout "us, gr"
+      options "grp:alt_shift_toggle"
+
+      // If this section is empty, niri will fetch xkb settings
+      // from org.freedesktop.locale1. You can control these using
+      // localectl set-x11-keymap.
+    }
+  }
+
+  touchpad {
+    tap
+    // Disable when typing
+    dwt
+    // Do not immediately drop a drag after lift
+    drag-lock
+    natural-scroll
+    accel-speed 0.3
+  }
+
+  mouse {
+      natural-scroll
+      accel-speed 0.2
+  }
+
+  warp-mouse-to-focus
+}
+
+//################
+//### MONITORS ###
+//################
+
+// https://yalter.github.io/niri/Configuration:-Outputs
+
+// (Tu) Laptop below 4K monitor
+output "eDP-1" {
+  mode "1920x1080"
+  scale 1
+  transform "normal"
+  position x=768 y=1728
+}
+output "HDMI-A-1" {
+  mode "3840x2160@60.000"
+  scale 1.25
+  transform "normal"
+  position x=0 y=0
+}
+
+// (Tu) Laptop on the left (and down) of 4K monitor
+/-output "eDP-1" {
+  mode "1920x1080"
+  scale 1
+  transform "normal"
+  position x=0 y=1140
+}
+/-output "HDMI-A-1" {
+  mode "3840x2160@60.000"
+  scale 1.25
+  transform "normal"
+  position x=1920 y=0
+}
+
+//#####################
+//### Switch Events ###
+//#####################
+
+// https://yalter.github.io/niri/Configuration:-Switch-Events
+
+switch-events {
+    lid-close { spawn "notify-send" "The laptop lid is closed!"; }
+    lid-open { spawn "notify-send" "The laptop lid is open!"; }
+}
+
+//##############
+//### LAYOUT ###
+//##############
+
+// https://yalter.github.io/niri/Configuration:-Layout
+
+layout {
+  // Inner gaps
+  gaps 4
+  center-focused-column "never"
+
+  preset-column-widths {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+  }
+
+  default-column-width { proportion 0.5; }
+
+  // Disable hover border 
+  focus-ring {
+    off
+  }
+
+  border {
+    width 1
+    active-color "#fbf1c7"
+    inactive-color "#a89984"
+    urgent-color "#fb4934"
+  }
+
+  // Outer gaps
+  struts {
+    left 8
+    right 8
+    bottom 8
+  }
+}
+
+//################
+//### GESTURES ###
+//################
+
+// https://yalter.github.io/niri/Configuration:-Gestures
+
+gestures {
+  hot-corners {
+    off
+  }
+}
+
+//####################
+//### MISCELANEOUS ###
+//####################
+
+// https://yalter.github.io/niri/Configuration:-Miscelaneous
+
+hotkey-overlay {
+  // Do not show tutorial
+  skip-at-startup
+}
+
+// Disables client side decorations
+// This seems to fix the Zen browser resize font blur bug.
+prefer-no-csd
+
+cursor {
+    xcursor-size 24
+}
+
+clipboard {
+  disable-primary
+}
+
+// ####################
+// ### WINDOW RULES ###
+// ####################
+
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+
+
+// Things to open floating
+window-rule {
+    match app-id=r#"zen$"# title="^Picture-in-Picture$"
+    match app-id=r#"steam$"#
+
+    open-floating true
+}
+
+// Rounded corners bby
+window-rule {
+    geometry-corner-radius 10
+    clip-to-geometry true
+}
+
+// ####################
+// ### KEY BINDINGS ###
+// ####################
+
+// https://yalter.github.io/niri/Configuration:-Key-Bindings
+
+binds {
+
+  // Launchers
+  Mod+T hotkey-overlay-title="Open a terminal" { spawn "kitty"; }
+  Mod+Space hotkey-overlay-title="Open app launcher" { spawn-sh "rofi -show drun -theme drun"; }
+  Mod+Escape hotkey-overlay-title="Open power menu" { spawn "powermenu"; }
+  Mod+B hotkey-overlay-title="Open browser" { spawn-sh "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=launch-script.sh --file-forwarding app.zen_browser.zen"; }
+  Mod+Tab hotkey-overlay-title="Open window switcher" { spawn-sh "rofi -show window -no-fixed-num-lines -theme window"; }
+  Print hotkey-overlay-title="Open Screenshot/Record" { spawn "screen_capture"; }
+
+  // Function / System buttons
+  // The allow-when-locked=true property makes them work even when the session is locked.
+  Xf86PowerOff { spawn "powermenu"; }
+  Xf86Suspend { spawn "powermenu"; }
+  Xf86Sleep { spawn "powermenu"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+  XF86AudioMute        allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+  XF86AudioMicMute     allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
+
+  // Window management
+  Mod+O repeat=false { toggle-overview; }
+  Mod+Q repeat=false { close-window; }
+
+  // These should work when laptop is at left of 4K monitor
+  Mod+Left  { focus-column-or-monitor-left; }
+  Mod+Down  { focus-window-or-workspace-down; }
+  Mod+Up    { focus-window-or-workspace-up; }
+  Mod+Right { focus-column-or-monitor-right; }
+  Mod+Shift+Left  { move-column-left-or-to-monitor-left; }
+  Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
+  Mod+Shift+Up    { move-window-up-or-to-workspace-up; }
+  Mod+Shift+Right { move-column-right-or-to-monitor-right; }
+
+  Mod+Home { focus-column-first; }
+  Mod+End  { focus-column-last; }
+
+  Mod+Ctrl+Left  { focus-monitor-left; }
+  Mod+Ctrl+Down  { focus-monitor-down; }
+  Mod+Ctrl+Up    { focus-monitor-up; }
+  Mod+Ctrl+Right { focus-monitor-right; }
+
+  // (Could also do move-column... or move-workspace...)
+  Mod+Shift+Ctrl+Left  { move-window-to-monitor-left; }
+  Mod+Shift+Ctrl+Down  { move-window-to-monitor-down; }
+  Mod+Shift+Ctrl+Up    { move-window-to-monitor-up; }
+  Mod+Shift+Ctrl+Right { move-window-to-monitor-right; }
+
+  // Mouse / Scroll wheel movements
+  Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+  Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+  Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+  Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+  Mod+WheelScrollRight      { focus-column-left; }
+  Mod+WheelScrollLeft       { focus-column-right; }
+  Mod+Ctrl+WheelScrollRight { move-column-left; }
+  Mod+Ctrl+WheelScrollLeft  { move-column-right; }
+
+  // Touchpad system control
+  Mod+TouchpadScrollDown { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02+"; }
+  Mod+TouchpadScrollUp   { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.02-"; }
+  Mod+TouchpadScrollLeft allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+1%"; }
+  Mod+TouchpadScrollRight allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "1%-"; }
+
+  // Workspaces movement
+  Mod+1 { focus-workspace 1; }
+  Mod+2 { focus-workspace 2; }
+  Mod+3 { focus-workspace 3; }
+  Mod+4 { focus-workspace 4; }
+  Mod+5 { focus-workspace 5; }
+  Mod+6 { focus-workspace 6; }
+  Mod+7 { focus-workspace 7; }
+  Mod+8 { focus-workspace 8; }
+  Mod+9 { focus-workspace 9; }
+  // Could also be move-window-...
+  Mod+Ctrl+1 { move-column-to-workspace 1; }
+  Mod+Ctrl+2 { move-column-to-workspace 2; }
+  Mod+Ctrl+3 { move-column-to-workspace 3; }
+  Mod+Ctrl+4 { move-column-to-workspace 4; }
+  Mod+Ctrl+5 { move-column-to-workspace 5; }
+  Mod+Ctrl+6 { move-column-to-workspace 6; }
+  Mod+Ctrl+7 { move-column-to-workspace 7; }
+  Mod+Ctrl+8 { move-column-to-workspace 8; }
+  Mod+Ctrl+9 { move-column-to-workspace 9; }
+
+  // Move windows to same column and vice versa (Consider consume-or-expel-window-left/right
+  Mod+Comma  { consume-window-into-column; }
+  Mod+Period { expel-window-from-column; }
+
+  // Resize in presets
+  Mod+R { switch-preset-column-width; }
+  Mod+Shift+R { switch-preset-window-height; }
+  Mod+Ctrl+R { reset-window-height; }
+
+  // Maximize
+  Mod+F { maximize-column; }
+  Mod+Shift+F { fullscreen-window; }
+  Mod+Ctrl+F { expand-column-to-available-width; }
+
+  // Resize in steps
+  Mod+Minus { set-column-width "-10%"; }
+  Mod+Equal { set-column-width "+10%"; }
+  Mod+Shift+Minus { set-window-height "-10%"; }
+  Mod+Shift+Equal { set-window-height "+10%"; }
+
+  // Floating
+  Mod+V       { toggle-window-floating; }
+  Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+  // Tabs
+  Mod+W { toggle-column-tabbed-display; }
+
+  // Regain control from buggy apps
+  Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+  // The quit action will show a confirmation dialog to avoid accidental exits.
+  Ctrl+Alt+Delete { quit; }
+}

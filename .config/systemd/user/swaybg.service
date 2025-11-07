@@ -1,0 +1,8 @@
+[Unit]
+PartOf=graphical-session.target
+After=graphical-session.target
+Requisite=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/swaybg -o "eDP-1" -i "%h/Pictures/Wallpapers/gruv_pixel_castle_zoomed_out.png" -m fill -o "HDMI-A-1" -i "%h/Pictures/Wallpapers/gruv_pixel_castle_zoomed_out.png" -m fill
+Restart=on-failure
