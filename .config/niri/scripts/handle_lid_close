@@ -1,0 +1,16 @@
+#!/bin/sh
+
+laptop_monitor_name="eDP-1"
+monitors=$(niri msg outputs | grep "Output" | awk -F ' ' '{print $NF}' | sed 's/[)(]//g')
+monitors_filter_by_laptop_monitor=$(echo "$monitors" | grep $laptop_monitor_name)
+number_of_monitors="$(echo "$monitors" | wc -l)"
+
+if [[ "$number_of_monitors" == 1 ]] && [[ ! -z "$monitors_filter_by_laptop_monitor" ]]; then
+  echo "Just laptop monitor. Will lock."
+  swaylock
+elif [[ ! -z "$monitors_filter_by_laptop_monitor" ]]; then
+  echo "More than one monitors and laptop monitor included. Will disable laptop monitor."
+  niri msg outputs '$laptop_monitor_name' on
+else
+  echo "One monitor but laptop monitor not included. Will do nothing."
+fi

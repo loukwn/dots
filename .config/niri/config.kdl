@@ -95,8 +95,8 @@ output "HDMI-A-1" {
 // https://yalter.github.io/niri/Configuration:-Switch-Events
 
 switch-events {
-    lid-close { spawn "notify-send" "The laptop lid is closed!"; }
-    lid-open { spawn "notify-send" "The laptop lid is open!"; }
+    lid-close { spawn "~/.config/niri/scripts/handle_lid_close"; }
+    lid-open { spawn "~/.config/niri/scripts/handle_lid_open"; }
 }
 
 //##############
