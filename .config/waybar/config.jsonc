@@ -1,11 +1,10 @@
 {
-  "layer": "bottom",
+  // layer was bottom for Hyprland: TO CHECK
+  "layer": "top",
   "position": "top",
   "height": 46,
-  "margin-left": 16,
-  "margin-right": 16,
   "spacing": 16,
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces", "hyprland/window", "niri/workspaces", "niri/window"],
   "modules-center": ["mpris", "privacy", "custom/wf-recorder", "clock"],
   "modules-right": [
     "idle_inhibitor",
@@ -15,9 +14,32 @@
     "temperature",
     "battery",
     "hyprland/language",
+    "niri/language",
     "network",
     "tray",
   ],
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    }
+  },
+
+  "niri/window": {
+    "format": "{}",
+    "rewrite": {
+      "(.*) — Zen Browser": "<big> </big>  $1",
+      "(.*) - Kitty": "<big>  </big>$1",
+      "zsh": "<big>  </big>$1",
+      "(.*) - Obsidian - (.*)": "<big>󰠮 </big> $1",
+      "(.*) — 1Password": "<big>󰌾 </big> $1",
+      "Tresorit": "<big>󱋖 </big> Tresorit",
+      "(.*) - Godot Engine": "<big> </big> $1",
+      "(.*) - Thunar": "<big> </big> $1",
+    }
+  },
 
   "hyprland/workspaces": {
     "disable-scroll": true,
@@ -143,6 +165,10 @@
   },
 
   "hyprland/language": {
+    "format": "<big> </big>  {long}",
+  },
+
+  "niri/language": {
     "format": "<big> </big>  {long}",
   },
 

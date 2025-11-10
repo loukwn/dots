@@ -34,7 +34,31 @@ tooltip label {
 }
 
 #workspaces {
-  margin: 8px 0px 8px 0px;
+  margin: 8px 0px 8px 16px;
+  border: 1px solid @dark_bg2;
+  border-radius: 20px;
+}
+
+#workspaces button {
+  padding: 8px;
+}
+
+#workspaces button:last-child {
+  border-radius: 0px 20px 20px 0px;
+}
+
+#workspaces button:first-child {
+  border-radius: 20px 0px 0px 20px;
+}
+
+#workspaces button.active {
+  color: @dark_yellow;
+}
+
+
+/* Hyprland settings for workspaces
+#workspaces {
+  margin: 8px 0px 8px 16px;
   color: @dark_bg0;
   border: 1px solid @dark_bg2;
   border-radius: 20px;
@@ -70,7 +94,7 @@ tooltip label {
   background: none;
   border: none;
 }
-
+*/
 #window label {
   font-weight: bold;
   color: @dark_fg0;
@@ -159,6 +183,10 @@ tooltip label {
 #network {
   font-weight: bold;
   color: @dark_aqua;
+}
+
+#tray {
+  margin: 0px 16px 0px 0px;
 }
 
 @keyframes blink {
